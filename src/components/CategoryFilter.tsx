@@ -2,9 +2,7 @@ export const categories = [
   "All",
   "Hatchbacks",
   "Sedans",
-  "Compact SUVs",
-  "MUVs",
-  "Premium"
+  "MUVs"
 ];
 
 interface CategoryFilterProps {

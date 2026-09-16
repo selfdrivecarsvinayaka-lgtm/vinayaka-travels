@@ -11,14 +11,16 @@ export function CarCard({ vehicle, onViewDetails, onBookNow }: CarCardProps) {
   return (
     <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 flex flex-col h-full group">
       {/* Image container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-50 p-6 flex items-center justify-center">
-        <img
-          src={vehicle.image}
-          alt={vehicle.name}
-          className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute top-4 left-4">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/20 border border-accent/30 text-ink px-3 py-1.5 text-xs font-semibold backdrop-blur-md">
+      <div className="relative aspect-[16/9] w-full p-3 pb-0">
+        <div className="w-full h-full rounded-[16px] overflow-hidden border border-black/5 shadow-[0_2px_8px_rgb(0,0,0,0.04)] relative">
+          <img
+            src={vehicle.image}
+            alt={vehicle.name}
+            className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500"
+          />
+        </div>
+        <div className="absolute top-6 left-6 z-10">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 border border-black/5 text-ink px-3 py-1.5 text-xs font-semibold backdrop-blur-md shadow-sm">
             <Sparkles className="size-3 text-accent" />
             {vehicle.badge}
           </span>
@@ -48,11 +50,11 @@ export function CarCard({ vehicle, onViewDetails, onBookNow }: CarCardProps) {
           <div className="flex justify-between items-end">
             <div className="flex flex-col">
               <span className="text-sm font-semibold text-ink">12hrs - {vehicle.price12h}</span>
-              <span className="text-xs text-muted-foreground font-medium">limit {vehicle.limit12h}</span>
+              {vehicle.limit12h && <span className="text-xs text-muted-foreground font-medium">limit {vehicle.limit12h}</span>}
             </div>
             <div className="flex flex-col text-right">
               <span className="text-sm font-semibold text-ink">24hrs - {vehicle.price24h}</span>
-              <span className="text-xs text-muted-foreground font-medium">limit {vehicle.limit24h}</span>
+              {vehicle.limit24h && <span className="text-xs text-muted-foreground font-medium">limit {vehicle.limit24h}</span>}
             </div>
           </div>
         </div>

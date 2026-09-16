@@ -19,6 +19,11 @@ export function CarDetails({ vehicle, onClose, onBookNow }: CarDetailsProps) {
   }, []);
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string>(vehicle.image);
+
+  useEffect(() => {
+    setSelectedImage(vehicle.image);
+  }, [vehicle]);
 
   const imagesToShow = vehicle.gallery && vehicle.gallery.length > 0 
     ? vehicle.gallery 
@@ -52,26 +57,28 @@ export function CarDetails({ vehicle, onClose, onBookNow }: CarDetailsProps) {
           {vehicle.gallery && vehicle.gallery.length > 0 ? (
             <div className="flex flex-col gap-4">
               <div 
-                className="cursor-zoom-in relative group rounded-xl overflow-hidden"
-                onClick={() => setLightboxIndex(0)}
+                className="cursor-zoom-in relative group rounded-2xl overflow-hidden border border-black/5 shadow-sm bg-white aspect-[16/9]"
+                onClick={() => setLightboxIndex(imagesToShow.indexOf(selectedImage) !== -1 ? imagesToShow.indexOf(selectedImage) : 0)}
               >
                 <img 
-                  src={vehicle.gallery[0]} 
+                  src={selectedImage} 
                   alt={vehicle.name} 
-                  className="w-full h-auto object-contain mix-blend-multiply drop-shadow-xl transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                {vehicle.gallery.slice(1).map((img, idx) => (
+              <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+                {imagesToShow.map((img, idx) => (
                   <div 
                     key={idx}
-                    className="cursor-zoom-in relative group rounded-xl overflow-hidden"
-                    onClick={() => setLightboxIndex(idx + 1)}
+                    className={`cursor-pointer relative group rounded-xl overflow-hidden border-2 transition-all bg-white aspect-[4/3] ${
+                      selectedImage === img ? "border-primary shadow-sm" : "border-transparent border-black/5 hover:border-gray-300"
+                    }`}
+                    onClick={() => setSelectedImage(img)}
                   >
                     <img 
                       src={img} 
                       alt={`${vehicle.name} detail ${idx + 1}`} 
-                      className="w-full h-32 object-cover rounded-xl shadow-sm transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     />
                   </div>
                 ))}
@@ -117,7 +124,7 @@ export function CarDetails({ vehicle, onClose, onBookNow }: CarDetailsProps) {
             <label className="flex items-center justify-between p-4 rounded-2xl border-2 border-primary bg-primary/5 cursor-pointer transition-colors">
               <div className="flex flex-col">
                 <span className="font-bold text-ink">12 Hours Plan</span>
-                <span className="text-sm text-muted-foreground">Up to {vehicle.limit12h}</span>
+                {vehicle.limit12h && <span className="text-sm text-muted-foreground">Up to {vehicle.limit12h}</span>}
               </div>
               <div className="text-right flex flex-col">
                 <span className="font-bold text-primary text-xl">{vehicle.price12h}</span>
@@ -126,7 +133,7 @@ export function CarDetails({ vehicle, onClose, onBookNow }: CarDetailsProps) {
             <label className="flex items-center justify-between p-4 rounded-2xl border-2 border-gray-100 hover:border-gray-200 cursor-pointer transition-colors">
               <div className="flex flex-col">
                 <span className="font-bold text-ink">24 Hours Plan</span>
-                <span className="text-sm text-muted-foreground">Up to {vehicle.limit24h}</span>
+                {vehicle.limit24h && <span className="text-sm text-muted-foreground">Up to {vehicle.limit24h}</span>}
               </div>
               <div className="text-right flex flex-col">
                 <span className="font-bold text-ink text-xl">{vehicle.price24h}</span>

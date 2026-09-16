@@ -18,6 +18,11 @@ export function BookingModal({ vehicle, onClose }: BookingModalProps) {
   }, []);
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string>(vehicle.image);
+
+  useEffect(() => {
+    setSelectedImage(vehicle.image);
+  }, [vehicle]);
 
   const imagesToShow = vehicle.gallery && vehicle.gallery.length > 0 
     ? vehicle.gallery 
@@ -103,7 +108,11 @@ export function BookingModal({ vehicle, onClose }: BookingModalProps) {
     }
     
     text += `Rental Price: ${formattedPrice}\n`;
-    text += `KM Limit: ${limit}\n\n`;
+    if (limit) {
+      text += `KM Limit: ${limit}\n\n`;
+    } else {
+      text += `\n`;
+    }
 
     if (formData.message) {
       text += `Message: ${formData.message}\n\n`;
@@ -146,26 +155,28 @@ export function BookingModal({ vehicle, onClose }: BookingModalProps) {
             {vehicle.gallery && vehicle.gallery.length > 0 ? (
               <div className="flex flex-col gap-4 mb-6">
                 <div 
-                  className="cursor-zoom-in relative group rounded-xl overflow-hidden"
-                  onClick={() => setLightboxIndex(0)}
+                  className="cursor-zoom-in relative group rounded-2xl overflow-hidden border border-black/5 shadow-sm bg-white aspect-[16/9]"
+                  onClick={() => setLightboxIndex(imagesToShow.indexOf(selectedImage) !== -1 ? imagesToShow.indexOf(selectedImage) : 0)}
                 >
                   <img 
-                    src={vehicle.gallery[0]} 
+                    src={selectedImage} 
                     alt={vehicle.name} 
-                    className="w-full h-auto object-contain mix-blend-multiply drop-shadow-xl transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  {vehicle.gallery.slice(1).map((img, idx) => (
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+                  {imagesToShow.map((img, idx) => (
                     <div 
                       key={idx}
-                      className="cursor-zoom-in relative group rounded-xl overflow-hidden"
-                      onClick={() => setLightboxIndex(idx + 1)}
+                      className={`cursor-pointer relative group rounded-xl overflow-hidden border-2 transition-all bg-white aspect-[4/3] ${
+                        selectedImage === img ? "border-primary shadow-sm" : "border-transparent border-black/5 hover:border-gray-300"
+                      }`}
+                      onClick={() => setSelectedImage(img)}
                     >
                       <img 
                         src={img} 
                         alt={`${vehicle.name} detail ${idx + 1}`} 
-                        className="w-full h-24 object-cover rounded-xl shadow-sm transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       />
                     </div>
                   ))}
