@@ -14,6 +14,10 @@ const __dirname = path.dirname(__filename);
 process.env.NITRO_PRESET = "vercel";
 
 export default defineConfig({
+  server: {
+    port: 8080,
+    host: "::",
+  },
   plugins: [
     tailwindcss(),
     tsconfigPaths({ projects: ["./tsconfig.json"] }),
