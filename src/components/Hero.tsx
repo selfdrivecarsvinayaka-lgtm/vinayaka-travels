@@ -46,54 +46,7 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Booking/Search Panel */}
-        <div className="w-full max-w-5xl mt-16 bg-white rounded-2xl p-4 sm:p-6 shadow-2xl animate-in slide-in-from-bottom-8 duration-700">
-          <form className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            <div className="md:col-span-2 relative">
-              <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
-                Pickup Location
-              </label>
-              <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-primary" />
-                <select className="w-full h-12 pl-10 pr-4 bg-gray-50 border border-gray-200 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary appearance-none">
-                  <option>Hanamkonda, Warangal</option>
-                  <option>Kazipet Railway Station</option>
-                  <option>Warangal Railway Station</option>
-                </select>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
-                Pickup Date
-              </label>
-              <div className="relative">
-                <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-primary" />
-                <input type="date" className="w-full h-12 pl-10 pr-4 bg-gray-50 border border-gray-200 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" />
-              </div>
-            </div>
-            
-            <div className="relative">
-              <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
-                Return Date
-              </label>
-              <div className="relative">
-                <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-primary" />
-                <input type="date" className="w-full h-12 pl-10 pr-4 bg-gray-50 border border-gray-200 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" />
-              </div>
-            </div>
 
-            <div className="flex items-end">
-              <button
-                type="button"
-                className="w-full h-12 bg-accent hover:bg-accent/90 text-ink font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-md"
-              >
-                <Search className="size-5" />
-                Search Cars
-              </button>
-            </div>
-          </form>
-        </div>
       </div>
     </section>
   );

@@ -70,7 +70,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v02",
-    name: "Maruti Suzuki Dzire",
+    name: "Maruti Suzuki Dzire Dazzling",
     variant: "Petrol VXI",
     model: "2026",
     category: "Sedans",
@@ -116,7 +116,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v04",
-    name: "Toyota Innova Crysta",
+    name: "Toyota Innova Crysta Z-2.5",
     variant: "Z 2.5",
     model: "2024",
     category: "MUVs",
@@ -139,7 +139,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v05",
-    name: "Toyota Innova Crysta",
+    name: "Toyota Innova Crysta G-2.5",
     variant: "G 2.5",
     model: "2025",
     category: "MUVs",

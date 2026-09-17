@@ -1,5 +1,5 @@
 import { business } from "@/lib/site-data";
-import { MessageCircle, Phone, MapPin, Car } from "lucide-react";
+import { MessageCircle, Phone, MapPin, Car, ChevronRight } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="bg-ink text-white pt-20 pb-10">
       <div className="mx-auto max-w-7xl px-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
           {/* Brand Col */}
           <div className="lg:col-span-1">
             <a href="#top" className="flex items-center gap-2 font-semibold mb-6">
@@ -39,27 +39,14 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-bold font-display mb-6">Quick Links</h3>
-            <ul className="space-y-4 text-sm text-white/70">
-              <li><a href="#top" className="hover:text-primary transition-colors">Home</a></li>
-              <li><a href="#cars" className="hover:text-primary transition-colors">Cars</a></li>
-              <li><a href="#why-us" className="hover:text-primary transition-colors">About</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Services</a></li>
-              <li><a href="#why-us" className="hover:text-primary transition-colors">Why Choose Us</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
-              <li><a href="#rules-regulations" className="hover:text-primary transition-colors">Policies</a></li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-lg font-bold font-display mb-6">Services</h3>
-            <ul className="space-y-4 text-sm text-white/70">
-              <li><a href="#services" className="hover:text-primary transition-colors">Self Drive Cars</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Car Rentals</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">SUV Rentals</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Sedan Rentals</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Hatchback Rentals</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Outstation Travel</a></li>
+            <ul className="grid grid-cols-2 gap-y-4 gap-x-6 text-sm text-white/70">
+              <li><a href="#top" className="flex items-center gap-2 hover:text-primary transition-colors group"><ChevronRight className="size-4 text-primary/50 group-hover:translate-x-1 transition-transform" /> Home</a></li>
+              <li><a href="#cars" className="flex items-center gap-2 hover:text-primary transition-colors group"><ChevronRight className="size-4 text-primary/50 group-hover:translate-x-1 transition-transform" /> Cars</a></li>
+              <li><a href="#why-us" className="flex items-center gap-2 hover:text-primary transition-colors group"><ChevronRight className="size-4 text-primary/50 group-hover:translate-x-1 transition-transform" /> About</a></li>
+              <li><a href="#services" className="flex items-center gap-2 hover:text-primary transition-colors group"><ChevronRight className="size-4 text-primary/50 group-hover:translate-x-1 transition-transform" /> Services</a></li>
+              <li><a href="#why-us" className="flex items-center gap-2 hover:text-primary transition-colors group"><ChevronRight className="size-4 text-primary/50 group-hover:translate-x-1 transition-transform" /> Why Choose Us</a></li>
+              <li><a href="#contact" className="flex items-center gap-2 hover:text-primary transition-colors group"><ChevronRight className="size-4 text-primary/50 group-hover:translate-x-1 transition-transform" /> Contact</a></li>
+              <li><a href="#rules-regulations" className="flex items-center gap-2 hover:text-primary transition-colors group"><ChevronRight className="size-4 text-primary/50 group-hover:translate-x-1 transition-transform" /> Policies</a></li>
             </ul>
           </div>
 
@@ -101,9 +88,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/50">
+        <div className="border-t border-white/10 pt-8 flex items-center justify-center text-sm text-white/50 text-center">
           <p>© {currentYear} {business.name}. All rights reserved.</p>
-          <p>Made for Hanamkonda & Warangal</p>
         </div>
       </div>
     </footer>
