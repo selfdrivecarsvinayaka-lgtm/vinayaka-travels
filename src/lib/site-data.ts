@@ -143,12 +143,12 @@ export const vehicles: Vehicle[] = [
     variant: "G 2.5",
     model: "2025",
     category: "MUVs",
-    image: "/cars/05-toyota-innova-crysta-g-2025/innova crysta 2025 g-2.5 side.jpg",
+    image: "/cars/05-toyota-innova-crysta-g-2025/side innova crysta.jpeg",
     gallery: [
       "/cars/05-toyota-innova-crysta-g-2025/innova crysta 2025 g-2.5 front.jpg",
       "/cars/05-toyota-innova-crysta-g-2025/innova crysta 2025 g-2.5 interior.jpg",
       "/cars/05-toyota-innova-crysta-g-2025/innova crysta 2025 g-2.5 interior_seats.jpg",
-      "/cars/05-toyota-innova-crysta-g-2025/innova crysta 2025 g-2.5 side.jpg"
+      "/cars/05-toyota-innova-crysta-g-2025/side innova crysta.jpeg"
     ],
     badge: "Family MUV",
     seats: "7 Seats",
