@@ -3,7 +3,7 @@ import { business } from "@/lib/site-data";
 
 export function ContactCTA() {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-primary"></div>
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       
@@ -46,10 +46,14 @@ export function ContactCTA() {
           </a>
         </div>
         
-        <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-6 text-white/90 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center sm:text-left">
+        <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-white/90 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center sm:text-left">
           <div className="flex items-center gap-2">
             <Phone className="size-5 text-accent shrink-0" />
-            <span className="font-semibold">{business.phone} <span className="font-normal opacity-75 hidden sm:inline-block">/</span> {business.additionalPhone}</span>
+            <div className="flex flex-col sm:flex-row sm:items-center font-semibold gap-1 sm:gap-2">
+              <span>{business.phone}</span>
+              <span className="font-normal opacity-75 hidden sm:inline-block">/</span>
+              <span>{business.additionalPhone}</span>
+            </div>
           </div>
           <div className="hidden sm:block w-px h-6 bg-white/20"></div>
           <a

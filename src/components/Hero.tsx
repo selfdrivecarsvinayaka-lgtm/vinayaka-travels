@@ -4,7 +4,7 @@ import { business } from "@/lib/site-data";
 
 export function Hero() {
   return (
-    <section id="top" className="relative pt-24 pb-32 lg:pt-32 lg:pb-40 overflow-hidden">
+    <section id="top" className="relative pt-20 pb-20 md:pt-24 md:pb-32 lg:pt-32 lg:pb-40 overflow-hidden">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -17,14 +17,14 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 flex flex-col items-start pt-10">
         <div className="max-w-2xl text-white">
-          <div className="flex flex-wrap gap-4 mb-6 text-xs sm:text-sm font-bold text-accent uppercase tracking-wider">
+          <div className="flex flex-wrap gap-3 mb-6 text-[10px] sm:text-sm font-bold text-accent uppercase tracking-wider">
             <span className="flex items-center gap-1.5"><ShieldCheck className="size-4" /> Claimed & Verified</span>
             <span className="flex items-center gap-1.5"><Clock className="size-4" /> Open 24 Hrs</span>
             <span className="flex items-center gap-1.5"><Award className="size-4" /> 9+ Years in Business</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight font-display">
+          <h1 className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-[1.1] font-display">
             Vinayaka Self Drive Cars <br className="hidden sm:block" />
-            <span className="text-primary">and Car Rentals</span>
+            <span className="text-white/90">and Car Rentals</span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-white/90 leading-relaxed">
             24/7 self-drive car rentals in Hanamkonda and Warangal with easy booking and affordable prices.

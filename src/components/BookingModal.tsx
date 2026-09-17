@@ -222,7 +222,7 @@ export function BookingModal({ vehicle, onClose }: BookingModalProps) {
         </div>
 
         {/* Right: Booking Form */}
-        <div className="w-full md:w-3/5 p-6 sm:p-8 flex flex-col overflow-y-auto">
+        <div className="w-full md:w-3/5 p-6 md:p-8 flex flex-col overflow-y-auto">
           <h3 className="text-2xl font-bold font-display mb-2 text-ink">Book {vehicle.name}</h3>
           <p className="text-sm text-muted-foreground mb-6">Fill in your trip details to confirm availability via WhatsApp.</p>
           

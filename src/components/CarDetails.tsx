@@ -46,7 +46,7 @@ export function CarDetails({ vehicle, onClose, onBookNow }: CarDetailsProps) {
         </button>
 
         {/* Left: Image & Title */}
-        <div className="w-full md:w-1/2 bg-gray-50 p-8 flex flex-col justify-center relative border-r border-gray-100 overflow-y-auto">
+        <div className="w-full md:w-1/2 bg-gray-50 p-6 md:p-8 flex flex-col justify-center relative border-b md:border-b-0 md:border-r border-gray-100 overflow-y-auto">
           <div className="mb-8">
             <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider rounded-full mb-2">
               {vehicle.category}
@@ -117,7 +117,7 @@ export function CarDetails({ vehicle, onClose, onBookNow }: CarDetailsProps) {
         </div>
 
         {/* Right: Booking Options */}
-        <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col overflow-y-auto">
+        <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col overflow-y-auto">
           <h3 className="text-xl font-bold font-display mb-6 border-b border-gray-100 pb-4">Rental Options</h3>
           
           <div className="space-y-4 mb-8">

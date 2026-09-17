@@ -32,7 +32,7 @@ export function WhyChooseUs() {
   ];
 
   return (
-    <section id="why-us" className="py-24 bg-white relative overflow-hidden">
+    <section id="why-us" className="py-16 md:py-24 bg-white relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
       
       <div className="relative z-10 mx-auto max-w-7xl px-5">
@@ -62,7 +62,7 @@ export function WhyChooseUs() {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-wrap justify-center gap-6 md:gap-10">
+        <div className="mt-12 md:mt-16 flex flex-wrap justify-center gap-4 md:gap-10">
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-2">
               <CheckCircle2 className="size-5 text-accent" />

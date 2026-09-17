@@ -32,9 +32,9 @@ export function RulesAndRegulations() {
   const currentRules = lang === "en" ? englishRules : teluguRules;
 
   return (
-    <section id="rules-regulations" className="py-24 bg-white relative">
+    <section id="rules-regulations" className="py-16 md:py-24 bg-white relative">
       <div className="mx-auto max-w-4xl px-5 relative z-10">
-        <div className="bg-gray-50 border border-gray-100 rounded-[2rem] p-8 sm:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+        <div className="bg-gray-50 border border-gray-100 rounded-[2rem] p-6 sm:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
             <h2 className="text-3xl sm:text-4xl font-bold font-display text-ink">
               Rules & Regulations
@@ -42,7 +42,7 @@ export function RulesAndRegulations() {
             <div className="inline-flex bg-white rounded-full p-1 border border-gray-200 shadow-sm shrink-0">
               <button
                 onClick={() => setLang("en")}
-                className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
+                className={`px-4 sm:px-5 py-2.5 sm:py-2 min-w-[80px] rounded-full text-sm font-bold transition-all ${
                   lang === "en" ? "bg-primary text-white shadow-md" : "text-muted-foreground hover:text-ink"
                 }`}
               >
@@ -50,7 +50,7 @@ export function RulesAndRegulations() {
               </button>
               <button
                 onClick={() => setLang("te")}
-                className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
+                className={`px-4 sm:px-5 py-2.5 sm:py-2 min-w-[80px] rounded-full text-sm font-bold transition-all ${
                   lang === "te" ? "bg-primary text-white shadow-md" : "text-muted-foreground hover:text-ink"
                 }`}
               >

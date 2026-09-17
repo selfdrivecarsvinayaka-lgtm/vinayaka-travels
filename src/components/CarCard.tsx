@@ -27,7 +27,7 @@ export function CarCard({ vehicle, onViewDetails, onBookNow }: CarCardProps) {
         </div>
       </div>
 
-      <div className="p-6 flex-1 flex flex-col">
+      <div className="p-6 flex-1 flex flex-col min-w-0">
         <h3 className="text-xl font-bold font-display text-ink">{vehicle.name}</h3>
         
         {/* Specs pills */}
@@ -47,29 +47,29 @@ export function CarCard({ vehicle, onViewDetails, onBookNow }: CarCardProps) {
 
         {/* Pricing */}
         <div className="flex flex-col gap-2 mt-auto">
-          <div className="flex justify-between items-end">
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold text-ink">12hrs - {vehicle.price12h}</span>
-              {vehicle.limit12h && <span className="text-xs text-muted-foreground font-medium">limit {vehicle.limit12h}</span>}
+          <div className="flex flex-wrap justify-between items-end gap-2">
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-semibold text-ink truncate">12hrs - {vehicle.price12h}</span>
+              {vehicle.limit12h && <span className="text-xs text-muted-foreground font-medium truncate">limit {vehicle.limit12h}</span>}
             </div>
-            <div className="flex flex-col text-right">
-              <span className="text-sm font-semibold text-ink">24hrs - {vehicle.price24h}</span>
-              {vehicle.limit24h && <span className="text-xs text-muted-foreground font-medium">limit {vehicle.limit24h}</span>}
+            <div className="flex flex-col text-left xs:text-right min-w-0">
+              <span className="text-sm font-semibold text-ink truncate">24hrs - {vehicle.price24h}</span>
+              {vehicle.limit24h && <span className="text-xs text-muted-foreground font-medium truncate">limit {vehicle.limit24h}</span>}
             </div>
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-6 flex gap-3">
+        <div className="mt-6 flex flex-wrap gap-3">
           <button 
             onClick={() => onViewDetails(vehicle)}
-            className="flex-1 h-11 inline-flex items-center justify-center rounded-xl border-2 border-gray-100 bg-white px-4 text-sm font-semibold text-ink hover:border-gray-200 hover:bg-gray-50 transition-colors"
+            className="flex-1 min-w-[100px] h-11 inline-flex items-center justify-center rounded-xl border-2 border-gray-100 bg-white px-4 text-sm font-semibold text-ink hover:border-gray-200 hover:bg-gray-50 transition-colors"
           >
             Details
           </button>
           <button
             onClick={() => onBookNow(vehicle)}
-            className="flex-1 h-11 inline-flex items-center justify-center rounded-xl bg-accent px-4 text-sm font-bold text-ink shadow-sm hover:bg-accent/90 hover:-translate-y-0.5 transition-all"
+            className="flex-1 min-w-[100px] h-11 inline-flex items-center justify-center rounded-xl bg-accent px-4 text-sm font-bold text-ink shadow-sm hover:bg-accent/90 hover:-translate-y-0.5 transition-all"
           >
             Book Now
           </button>

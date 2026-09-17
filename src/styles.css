@@ -141,9 +141,21 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  section[id] {
+    scroll-margin-top: 80px;
   }
 }
 

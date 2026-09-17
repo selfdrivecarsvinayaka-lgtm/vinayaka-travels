@@ -94,7 +94,7 @@ export function ImageLightbox({ images, initialIndex, onClose }: ImageLightboxPr
 
       {/* Image Container */}
       <div 
-        className="relative w-full h-full max-w-6xl max-h-[85vh] mx-auto px-16 flex items-center justify-center select-none"
+        className="relative w-full h-full max-w-6xl max-h-[85vh] mx-auto px-4 sm:px-16 flex items-center justify-center select-none"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEndEvent}

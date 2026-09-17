@@ -13,7 +13,7 @@ export function Services() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-gray-50/50">
+    <section id="services" className="py-16 md:py-24 bg-gray-50/50">
       <div className="mx-auto max-w-7xl px-5">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold font-display text-ink mb-4">
@@ -28,7 +28,7 @@ export function Services() {
           {servicesList.map((service, index) => (
             <div 
               key={index}
-              className="bg-white border border-gray-100 p-6 rounded-2xl flex flex-col items-center text-center transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 group"
+              className="bg-white border border-gray-100 p-4 sm:p-6 rounded-2xl flex flex-col items-center text-center transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 group"
             >
               <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
                 <service.icon className="size-6 text-primary" />

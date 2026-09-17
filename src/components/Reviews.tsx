@@ -5,7 +5,7 @@ export function Reviews() {
   const justdialUrl = "https://www.justdial.com/Warangal/Vinayaka-Self-Drive-Cars-and-Car-Rentals-Near-St-Girls-Hostel-Hanamkonda/9999PX870-X870-200531113054-P9Z4_BZDET?trkid=&term=&ncatid=11276270&area=&search=Showing%20Results%20for%20%22Vinayaka%20Self%20Drive%20Cars%20Hanamkonda%22%20in%20Warangal&mncatname=Vinayaka%20Self%20Drive%20Cars%20Hanamkonda&ftterm=Vinayaka%20Self%20Drive%20Cars%20Hanamkonda&csell=&oncatid=11276270&abd_btn=&abd_heading=&isFreetxt=1&bd=2&cat_b2b_flag=&searchfrom=lst&thumbnail=";
 
   return (
-    <section className="py-24 bg-gray-50/50">
+    <section className="py-16 md:py-24 bg-gray-50/50">
       <div className="mx-auto max-w-6xl px-5">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold font-display sm:text-4xl text-ink">

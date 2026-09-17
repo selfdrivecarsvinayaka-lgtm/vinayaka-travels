@@ -18,8 +18,8 @@ export function CategoryFilter({ selectedCategory, onSelectCategory }: CategoryF
         <p className="text-muted-foreground text-lg">Find the perfect vehicle for your journey.</p>
       </div>
       
-      <div className="w-full overflow-x-auto hide-scrollbar py-2">
-        <div className="flex items-center justify-center min-w-max gap-3 px-4">
+      <div className="w-full py-2">
+        <div className="flex flex-wrap items-center justify-center gap-3 px-2 sm:px-4">
           {categories.map((category) => (
             <button
               key={category}

@@ -2,11 +2,11 @@ import { business } from "@/lib/site-data";
 
 export function About() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 flex flex-col lg:flex-row gap-12 items-center">
         <div className="w-full lg:w-1/2 relative">
-          <div className="absolute inset-0 bg-primary/10 rounded-[3rem] transform translate-x-4 translate-y-4"></div>
-          <div className="relative bg-gray-50 rounded-[3rem] p-10 sm:p-14 border border-gray-100">
+          <div className="absolute inset-0 bg-primary/10 rounded-[3rem] transform translate-x-2 translate-y-2 md:translate-x-4 md:translate-y-4"></div>
+          <div className="relative bg-gray-50 rounded-[3rem] p-8 sm:p-14 border border-gray-100">
             <div className="grid grid-cols-2 gap-8">
               <div className="flex flex-col">
                 <span className="text-4xl sm:text-5xl font-bold font-display text-primary mb-2">9+</span>
