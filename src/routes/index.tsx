@@ -15,11 +15,11 @@ import { FloatingCTAs } from "@/components/FloatingCTAs";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vinayaka Self Drive Cars & Rentals | Hanamkonda, Warangal" },
+      { title: "Vinayaka Self Drive Cars & Car Rentals in Warangal | Hanamkonda" },
       {
         name: "description",
         content:
-          "Self drive car rentals in Hanamkonda, Warangal. Hatchbacks, sedans, SUVs, tempo travellers and buses on rent. Open 24 hours.",
+          "Book reliable self drive cars and car rentals in Hanamkonda, Warangal, Telangana. Choose from SUVs, MUVs, sedans and hatchbacks for local, outstation and travel needs.",
       },
     ],
   }),

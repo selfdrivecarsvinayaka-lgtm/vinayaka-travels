@@ -18,6 +18,15 @@ export function Fleet() {
   return (
     <section id="cars" className="py-16 md:py-24 bg-gray-50/50 w-full overflow-hidden">
       <div className="mx-auto w-full max-w-[1400px] px-6">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold font-display text-ink mb-4">
+            Our Car Rental Fleet
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Choose from our well-maintained self drive cars available for rent in Warangal and Hanamkonda.
+          </p>
+        </div>
+
         <CategoryFilter
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}

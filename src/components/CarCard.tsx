@@ -15,8 +15,9 @@ export function CarCard({ vehicle, onViewDetails, onBookNow }: CarCardProps) {
         <div className="w-full h-full rounded-[16px] overflow-hidden border border-black/5 shadow-[0_2px_8px_rgb(0,0,0,0.04)] relative">
           <img
             src={vehicle.image}
-            alt={vehicle.name}
+            alt={`${vehicle.name} self drive rental in Warangal`}
             className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500"
+            loading="lazy"
           />
         </div>
         <div className="absolute top-6 left-6 z-10">

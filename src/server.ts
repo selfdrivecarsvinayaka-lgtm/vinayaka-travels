@@ -44,18 +44,48 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+const PRODUCTION_HOSTS = [
+  "www.vinayakaselfdrivecars.in",
+  "vinayakaselfdrivecars.in",
+];
+
+function isProductionHost(request: Request): boolean {
+  try {
+    const url = new URL(request.url);
+    return PRODUCTION_HOSTS.includes(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
+function addNoIndexHeader(response: Response, request: Request): Response {
+  if (isProductionHost(request)) return response;
+  // Non-production host (e.g. .vercel.app, preview deployments) — prevent indexing
+  const headers = new Headers(response.headers);
+  headers.set("X-Robots-Tag", "noindex, nofollow");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      const normalized = await normalizeCatastrophicSsrResponse(response);
+      return addNoIndexHeader(normalized, request);
     } catch (error) {
       console.error(error);
-      return new Response(renderErrorPage(), {
-        status: 500,
-        headers: { "content-type": "text/html; charset=utf-8" },
-      });
+      return addNoIndexHeader(
+        new Response(renderErrorPage(), {
+          status: 500,
+          headers: { "content-type": "text/html; charset=utf-8" },
+        }),
+        request,
+      );
     }
   },
 };

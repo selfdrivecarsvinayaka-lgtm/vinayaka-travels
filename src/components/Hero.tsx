@@ -9,8 +9,9 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImg}
-          alt="Car driving on highway"
+          alt="Self drive car on highway – Vinayaka car rentals in Warangal"
           className="w-full h-full object-cover object-center"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40"></div>
       </div>

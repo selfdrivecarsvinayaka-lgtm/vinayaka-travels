@@ -26,7 +26,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 bg-white/75 backdrop-blur-md shadow-sm border-b border-white/20 py-3">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5">
-        <a href="#top" className="flex items-center gap-2 font-semibold">
+        <a href="#top" className="flex items-center gap-2 font-semibold" aria-label="Vinayaka Self Drive Cars and Car Rentals – Home">
           <Car className="size-6 text-primary" aria-hidden="true" />
           <div className="flex flex-col">
             <span className="font-display text-xl font-bold tracking-tight text-ink leading-none">
@@ -72,6 +72,7 @@ export function Navbar() {
         <button
           className="md:hidden p-2 text-ink"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle navigation menu"
         >
           {isMobileMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>
