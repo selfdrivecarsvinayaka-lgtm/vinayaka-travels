@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -12,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { business } from "../lib/site-data";
+import { pageview } from "../lib/analytics";
 
 const PRODUCTION_ORIGIN = "https://www.vinayakaselfdrivecars.in";
 const OG_IMAGE = `${PRODUCTION_ORIGIN}/cars/04-toyota-innova-crysta-z-2024/innova%20crysta%202024%20z-2.5%20front.jpg`;
@@ -237,6 +239,19 @@ function RootShell({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KQVFN9NKHL" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-KQVFN9NKHL', {
+                send_page_view: false
+              });
+            `,
+          }}
+        />
       </head>
       <body>
         {children}
@@ -248,6 +263,11 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const location = useRouterState({ select: (s) => s.location });
+
+  useEffect(() => {
+    pageview(location.href);
+  }, [location.href]);
 
   return (
     <QueryClientProvider client={queryClient}>

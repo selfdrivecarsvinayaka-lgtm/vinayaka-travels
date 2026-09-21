@@ -1,5 +1,6 @@
 import { MapPin, Phone, MessageCircle } from "lucide-react";
 import { business } from "@/lib/site-data";
+import { trackEvent } from "@/lib/analytics";
 
 export function FloatingCTAs() {
   return (
@@ -11,6 +12,7 @@ export function FloatingCTAs() {
         className="w-11 h-11 md:w-14 md:h-14 rounded-full flex items-center justify-center text-white shadow-md hover:scale-110 hover:shadow-lg transition-all duration-300"
         style={{ backgroundColor: "#C99445" }}
         aria-label="Location"
+        onClick={() => trackEvent("directions_click", { destination: "Google Maps" })}
       >
         <MapPin className="size-5 md:size-6" />
       </a>
@@ -20,6 +22,7 @@ export function FloatingCTAs() {
         className="w-11 h-11 md:w-14 md:h-14 rounded-full flex items-center justify-center text-white shadow-md hover:scale-110 hover:shadow-lg transition-all duration-300"
         style={{ backgroundColor: "#2563EB" }}
         aria-label="Call"
+        onClick={() => trackEvent("phone_click", { phone_number: business.phone })}
       >
         <Phone className="size-5 md:size-6" />
       </a>
@@ -31,6 +34,7 @@ export function FloatingCTAs() {
         className="w-11 h-11 md:w-14 md:h-14 rounded-full flex items-center justify-center text-white shadow-md hover:scale-110 hover:shadow-lg transition-all duration-300"
         style={{ backgroundColor: "#25D366" }}
         aria-label="WhatsApp"
+        onClick={() => trackEvent("whatsapp_click", { booking_type: "general" })}
       >
         <MessageCircle className="size-5 md:size-6" />
       </a>

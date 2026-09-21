@@ -1,6 +1,7 @@
 import { X, Users, Settings2, Fuel } from "lucide-react";
 import { Vehicle } from "@/lib/site-data";
 import { useEffect, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { ImageLightbox } from "./ImageLightbox";
 
 interface CarDetailsProps {
@@ -12,6 +13,7 @@ interface CarDetailsProps {
 export function CarDetails({ vehicle, onClose, onBookNow }: CarDetailsProps) {
   // Prevent scrolling on body when modal is open
   useEffect(() => {
+    trackEvent("car_view", { car_name: vehicle.name, category: vehicle.category });
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "unset";
@@ -148,13 +150,17 @@ export function CarDetails({ vehicle, onClose, onBookNow }: CarDetailsProps) {
 
           <div className="mt-auto flex flex-col sm:flex-row gap-3">
             <button
-              onClick={() => onBookNow(vehicle)}
+              onClick={() => {
+                trackEvent("book_now_click", { car_name: vehicle.name, price_plan: "details" });
+                onBookNow(vehicle);
+              }}
               className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] text-white px-6 py-4 font-bold shadow-md hover:bg-[#20b958] transition-all hover:-translate-y-0.5"
             >
               Book Now
             </button>
             <a
               href="tel:+916300943161"
+              onClick={() => trackEvent("phone_click", { phone_number: "+916300943161" })}
               className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-white px-6 py-4 font-bold shadow-md hover:bg-primary/90 transition-all hover:-translate-y-0.5"
             >
               Call to Book

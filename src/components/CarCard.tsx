@@ -1,5 +1,6 @@
 import { Users, Fuel, Settings2, Sparkles } from "lucide-react";
 import { Vehicle } from "@/lib/site-data";
+import { trackEvent } from "@/lib/analytics";
 
 interface CarCardProps {
   vehicle: Vehicle;
@@ -69,7 +70,10 @@ export function CarCard({ vehicle, onViewDetails, onBookNow }: CarCardProps) {
             Details
           </button>
           <button
-            onClick={() => onBookNow(vehicle)}
+            onClick={() => {
+              trackEvent("book_now_click", { car_name: vehicle.name, price_plan: "default" });
+              onBookNow(vehicle);
+            }}
             className="flex-1 min-w-[100px] h-11 inline-flex items-center justify-center rounded-xl bg-accent px-4 text-sm font-bold text-ink shadow-sm hover:bg-accent/90 hover:-translate-y-0.5 transition-all"
           >
             Book Now

@@ -1,5 +1,6 @@
 import { Phone, MessageCircle, MapPin } from "lucide-react";
 import { business } from "@/lib/site-data";
+import { trackEvent } from "@/lib/analytics";
 
 export function ContactCTA() {
   return (
@@ -18,12 +19,14 @@ export function ContactCTA() {
         <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 mb-12">
           <a
             href={`tel:+91${business.phone}`}
+            onClick={() => trackEvent("phone_click", { phone_number: business.phone })}
             className="w-full sm:w-auto inline-flex h-14 items-center justify-center gap-3 rounded-full bg-white px-8 text-lg font-bold text-ink shadow-xl hover:scale-105 transition-transform"
           >
             <Phone className="size-5" /> Call {business.phone}
           </a>
           <a
             href={`tel:+91${business.additionalPhone}`}
+            onClick={() => trackEvent("phone_click", { phone_number: business.additionalPhone })}
             className="w-full sm:w-auto inline-flex h-14 items-center justify-center gap-3 rounded-full bg-white px-8 text-lg font-bold text-ink shadow-xl hover:scale-105 transition-transform"
           >
             <Phone className="size-5" /> Call {business.additionalPhone}
@@ -32,6 +35,7 @@ export function ContactCTA() {
             href={business.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("whatsapp_click", { booking_type: "general" })}
             className="w-full sm:w-auto inline-flex h-14 items-center justify-center gap-3 rounded-full bg-[#25D366] px-8 text-lg font-bold text-white shadow-xl hover:scale-105 transition-transform"
           >
             <MessageCircle className="size-5" /> WhatsApp
@@ -40,6 +44,7 @@ export function ContactCTA() {
             href={business.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("directions_click", { destination: "Google Maps" })}
             className="w-full sm:w-auto inline-flex h-14 items-center justify-center gap-3 rounded-full bg-ink px-8 text-lg font-bold text-white shadow-xl border border-white/20 hover:scale-105 transition-transform"
           >
             <MapPin className="size-5" /> Get Directions
@@ -60,6 +65,7 @@ export function ContactCTA() {
             href={business.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("directions_click", { destination: "Google Maps" })}
             className="flex items-center gap-3 max-w-sm cursor-pointer group p-2 -m-2 rounded-xl hover:bg-white/5 transition-colors"
           >
             <MapPin className="size-5 text-accent shrink-0" />

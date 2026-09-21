@@ -1,5 +1,6 @@
 import { business } from "@/lib/site-data";
 import { MessageCircle, Phone, MapPin, Car, ChevronRight } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,6 +30,7 @@ export function Footer() {
                 href={business.whatsapp} 
                 target="_blank" 
                 rel="noopener noreferrer"
+                onClick={() => trackEvent("whatsapp_click", { booking_type: "footer" })}
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors text-white"
               >
                 <MessageCircle className="size-5" />
@@ -59,6 +61,7 @@ export function Footer() {
                   href={business.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent("directions_click", { destination: "Google Maps" })}
                   className="flex items-start gap-3 cursor-pointer group"
                 >
                   <MapPin className="size-5 text-primary shrink-0 mt-0.5" />
@@ -68,8 +71,8 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Phone className="size-5 text-primary shrink-0" />
                 <div className="flex flex-col gap-1">
-                  <a href={business.phoneHref} className="hover:text-primary transition-colors">{business.phone}</a>
-                  <a href={`tel:+91${business.additionalPhone}`} className="hover:text-primary transition-colors">{business.additionalPhone}</a>
+                  <a href={business.phoneHref} onClick={() => trackEvent("phone_click", { phone_number: business.phone })} className="hover:text-primary transition-colors">{business.phone}</a>
+                  <a href={`tel:+91${business.additionalPhone}`} onClick={() => trackEvent("phone_click", { phone_number: business.additionalPhone })} className="hover:text-primary transition-colors">{business.additionalPhone}</a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
@@ -81,6 +84,7 @@ export function Footer() {
               href={business.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("directions_click", { destination: "Google Maps" })}
               className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-primary/20 hover:bg-primary px-5 text-sm font-bold text-white transition-colors border border-primary/30"
             >
               📍 Get Directions

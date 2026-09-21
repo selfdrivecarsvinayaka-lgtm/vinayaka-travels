@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Phone, Menu, X, Car } from "lucide-react";
 import { business } from "@/lib/site-data";
+import { trackEvent } from "@/lib/analytics";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,6 +56,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <a
             href={business.phoneHref}
+            onClick={() => trackEvent("phone_click", { phone_number: business.phone })}
             className="text-sm font-semibold text-ink flex items-center gap-2 hover:text-primary transition-colors"
           >
             <Phone className="size-4 text-primary" />
@@ -93,11 +95,12 @@ export function Navbar() {
           ))}
           <div className="flex flex-col gap-3 mt-4">
             <div className="flex flex-col gap-2 mb-2 px-2 text-base font-semibold text-ink">
-              <a href={`tel:+91${business.phone}`} className="flex items-center gap-3 py-1"><Phone className="size-4 text-primary" /> {business.phone}</a>
-              <a href={`tel:+91${business.additionalPhone}`} className="flex items-center gap-3 py-1"><Phone className="size-4 text-primary" /> {business.additionalPhone}</a>
+              <a href={`tel:+91${business.phone}`} onClick={() => trackEvent("phone_click", { phone_number: business.phone })} className="flex items-center gap-3 py-1"><Phone className="size-4 text-primary" /> {business.phone}</a>
+              <a href={`tel:+91${business.additionalPhone}`} onClick={() => trackEvent("phone_click", { phone_number: business.additionalPhone })} className="flex items-center gap-3 py-1"><Phone className="size-4 text-primary" /> {business.additionalPhone}</a>
             </div>
             <a
               href={`tel:+91${business.phone}`}
+              onClick={() => trackEvent("phone_click", { phone_number: business.phone })}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-white px-4 py-2.5 text-sm font-semibold text-primary"
             >
               Call
@@ -106,6 +109,7 @@ export function Navbar() {
               href={business.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("whatsapp_click", { booking_type: "general" })}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-sm"
             >
               WhatsApp
@@ -114,6 +118,7 @@ export function Navbar() {
               href={business.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("directions_click", { destination: "Google Maps" })}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-4 py-2.5 text-sm font-semibold text-white shadow-sm"
             >
               Get Directions

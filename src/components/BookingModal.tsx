@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { X, Calendar, Clock, MapPin, Users, Settings2, Fuel } from "lucide-react";
 import { Vehicle } from "@/lib/site-data";
+import { trackEvent } from "@/lib/analytics";
 import { ImageLightbox } from "./ImageLightbox";
 
 interface BookingModalProps {
@@ -41,14 +42,24 @@ export function BookingModal({ vehicle, onClose }: BookingModalProps) {
   });
 
   const [error, setError] = useState("");
+  const formStartedRef = useRef(false);
+
+  const markFormStarted = () => {
+    if (!formStartedRef.current) {
+      formStartedRef.current = true;
+      trackEvent("booking_form_start", { car_name: vehicle.name });
+    }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    markFormStarted();
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     setError(""); // clear error on typing
   };
 
   const handleDurationChange = (duration: string) => {
+    markFormStarted();
     setFormData((prev) => ({ ...prev, duration }));
   };
 
@@ -119,6 +130,9 @@ export function BookingModal({ vehicle, onClose }: BookingModalProps) {
     }
 
     text += `Please confirm the availability and booking.\n\nThank you.`;
+
+    trackEvent("booking_form_submit", { car_name: vehicle.name, duration: formData.duration });
+    trackEvent("whatsapp_click", { booking_type: "car_booking", car_name: vehicle.name });
 
     const encodedText = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/916300943161?text=${encodedText}`;
