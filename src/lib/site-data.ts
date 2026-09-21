@@ -229,6 +229,24 @@ export const vehicles: Vehicle[] = [
     limit24h: "400 km",
     extraHr: "₹150",
     extraKm: "₹10",
+  },
+  {
+    id: "v09",
+    name: "Maruti Suzuki WagonR",
+    variant: "Standard",
+    model: "Standard",
+    category: "Hatchbacks",
+    image: "/cars/wagonr/maruti suzuki wagonr.jpeg",
+    badge: "City Hatchback",
+    seats: "5 Seats",
+    transmission: "Manual",
+    fuel: "Diesel",
+    price12h: "₹1,499",
+    limit12h: "200 km",
+    price24h: "₹1,999",
+    limit24h: "400 km",
+    extraHr: "₹150",
+    extraKm: "₹10",
   }
 ];
 

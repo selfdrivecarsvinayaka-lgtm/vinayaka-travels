@@ -121,13 +121,13 @@ export function CarDetails({ vehicle, onClose, onBookNow }: CarDetailsProps) {
           <h3 className="text-xl font-bold font-display mb-6 border-b border-gray-100 pb-4">Rental Options</h3>
           
           <div className="space-y-4 mb-8">
-            <label className="flex items-center justify-between p-4 rounded-2xl border-2 border-primary bg-primary/5 cursor-pointer transition-colors">
+            <label className="flex items-center justify-between p-4 rounded-2xl border-2 border-gray-100 hover:border-gray-200 cursor-pointer transition-colors">
               <div className="flex flex-col">
                 <span className="font-bold text-ink">12 Hours Plan</span>
                 {vehicle.limit12h && <span className="text-sm text-muted-foreground">Up to {vehicle.limit12h}</span>}
               </div>
               <div className="text-right flex flex-col">
-                <span className="font-bold text-primary text-xl">{vehicle.price12h}</span>
+                <span className="font-bold text-ink text-xl">{vehicle.price12h}</span>
               </div>
             </label>
             <label className="flex items-center justify-between p-4 rounded-2xl border-2 border-gray-100 hover:border-gray-200 cursor-pointer transition-colors">
